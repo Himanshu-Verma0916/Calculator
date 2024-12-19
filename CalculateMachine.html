@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-image: url("bg.jpg");
+            background-size: cover;
+        }
+        .bigBox{
+            height:30rem;
+            width:20rem;
+            /* background-color: aquamarine; */
+            /* background:radial-gradient(rgb(42, 4, 80) ,rgb(115, 64, 166),rgb(42, 4, 80)); */
+            margin-top:5rem;
+            padding: 1rem;
+            border-radius: .5rem;
+            backdrop-filter: blur(10px);
+        }
+        .box1{
+            height:4rem;
+            width:87%;
+            background-color: #ffffff;
+            position:relative;
+            bottom:1rem;
+            top:1rem;
+            text-align: right;
+            display: inline-block;
+            justify-content: right;
+            align-items:right;
+            border-radius: .5rem;
+            box-shadow:  0em 0 .4em black;
+            box-sizing: border-box;
+            padding: .5rem;
+
+            
+        }
+        
+        .box2{
+            position:relative;
+            top:2rem;
+            width:90%;
+            /* border:2px solid black;*/
+            box-sizing: border-box;
+            height:70%;
+            color: black;
+            
+
+            
+
+        } 
+        .box2 .btn{
+        height:4rem;
+        width:4rem;
+        margin: .13rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+        border-radius: .5rem;
+        box-shadow:  0em 0 .4em black;
+        text-shadow: rgb(34, 4, 46) 1px 0 10px;
+    
+
+        }
+        .btn:hover{
+            border-color: rgb(14, 11, 102);
+            
+        }
+    </style>
+
+</head>
+<body>
+    <center>
+    <div class="bigBox">
+        <div class="box1">
+
+        </div>
+
+        <div class="box2">
+            <button class="btn" id="operand" onclick="display('1')">1</button>
+            <button class="btn" id="operand" onclick="display('2')">2</button>
+            <button class="btn" id="operand" onclick="display('3')">3</button>
+            <button class="btn" onclick="display('+')">+</button>
+            <button class="btn"  id="operand" onclick="display('4')">4</button>
+            <button class="btn" id="operand" onclick="display('5')">5</button>
+            <button class="btn" id="operand" onclick="display('6')">6</button>
+            <button class="btn" onclick="display('-')">-</button>
+            <button class="btn" id="operand" onclick="display('7')">7</button>
+            <button class="btn" id="operand" onclick="display('8')">8</button>
+            <button class="btn" id="operand" onclick="display('9')">9</button>
+            <button class="btn" onclick="display('*')">*</button>
+            <button class="btn" id="operand" onclick="display('0')">0</button>
+            <button class="btn" onclick="display('.')">.</button>
+            <button class="btn" onclick="display('%')">%</button>
+            
+            <button class="btn" onclick="display('/')">/</button>
+            
+            <button class="btn" onclick="display('(')">(</button>
+            <button class="btn" onclick="display(')')">)</button>
+            <button class="btn" onclick="reset()">C</button>
+
+            <button class="btn" onclick="output()">=</button>
+            
+
+        </div>
+    </div>
+</center>
+<script>
+    let resultDisplayed=false;
+    const display=(a)=>{
+        let box1=document.querySelector(".box1");
+        if(resultDisplayed){
+            box1.innerText="";
+            resultDisplayed=false;
+        }
+        box1.append(a);
+    }
+    const output=()=>{
+        let box1=document.querySelector(".box1");
+        let result=eval(box1.innerHTML);
+        box1.innerText="";
+        box1.innerText=result;
+        resultDisplayed=true;
+    }
+    const reset=()=>{
+        let box1=document.querySelector(".box1");
+        box1.innerText="";
+
+    }
+</script>
+    
+</body>
+</html>
